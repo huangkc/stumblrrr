@@ -1,8 +1,9 @@
-class CreateMyLocations < ActiveRecord::Migration
+class CreateDestinations < ActiveRecord::Migration
   def change
-    create_table :my_locations do |t|
+    create_table :destinations do |t|
     	t.string :latitude
     	t.string :longitude
+    	t.string :title
 
       t.timestamps null: false
     end
