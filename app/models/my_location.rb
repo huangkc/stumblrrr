@@ -1,9 +1,9 @@
 class MyLocation < ActiveRecord::Base
-	attr_accessor :latitude, :longitude	
+	attr_accessor :lat, :long	
 
 	def initialize(options={})
-		@latitude = options["latitude"]
-		@longitude = options["longitude"]
+		@lat = options[:lat]
+		@long = options[:long]
 	end
 
 end

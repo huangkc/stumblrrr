@@ -1,9 +1,9 @@
 class Intermediate < ActiveRecord::Base
-	attr_accessor :latitude, :longitude, :title
+	attr_accessor :lat, :long, :title
 
 	def initialize(options={})
-		@latitude = options["latitude"]
-		@longitude = options["longitude"]
+		@lat = options["lat"]
+		@long = options["long"]
 		@title = options["title"]
 
 	end
