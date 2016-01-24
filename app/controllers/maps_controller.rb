@@ -29,8 +29,6 @@ class MapsController < ApplicationController
     @latitude = response["query"]["results"]["place"]["centroid"]["latitude"] || 1
     @longitude = response["query"]["results"]["place"]["centroid"]["longitude"] || 2
 
-
-
   end
 
 end
