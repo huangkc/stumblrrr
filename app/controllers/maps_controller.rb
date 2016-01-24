@@ -5,7 +5,7 @@ class MapsController < ApplicationController
   def index
     @my_location = MyLocation.new({lat: params["lat"], long: params["long"]})
 
-    p @points_of_interest = PointsOfInterest.all[1..2]
+    @points_of_interest = PointsOfInterest.all
 
     @destination = Destination.new({latitude: params[:latitude], longitude: params[:longitude]})
     @address = params[:search] ||= 'Paris'
@@ -18,7 +18,6 @@ res = Net::HTTP.start(url.host, url.port) {|http|
   http.request(req)
 }
 
-  @lol = res.body
 
 
 
