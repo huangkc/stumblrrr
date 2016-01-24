@@ -289,15 +289,25 @@ function showPosition(position) {
 
 
 
+<div align="center">
+    <br>
+    <form action='/' method='post'>
 
+        <input class="search" id="search" type="text" name="city_name" placeholder="Hello" />
+        <input type="submit" id="search-button" type="submit"
+       style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+       tabindex="-1" value="" />
+    </form>
+  <br>
+</div>
 
-<div class="row pull" style=" padding:20px">
+<!-- <div class="row pull" style=" padding:20px">
   <div class="col col-md-6 centred input-group input-group-lg" style="padding-top:12px">
     <input type="text" class="form-control" placeholder="Destination" aria-describedby="sizing-addon1">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button">Stumbler</button>
     </span>
   </div>
-</div>
+</div> -->
 
 <div id="map_canvas"></div>
