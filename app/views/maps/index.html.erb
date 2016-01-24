@@ -1,6 +1,4 @@
 
-<%= @address %>
-
 <%= form_tag(maps_path, :method => "get", class: "navbar-form", id: "search-form") do %>
     <%= hidden_field_tag :sort_option, :search %>
     <%= text_field_tag :search, params[:search], class: "form-control btn-border", placeholder: "Search Items" %>
@@ -200,6 +198,7 @@ function buildMap(coords){
       disableDefaultUI: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: mapStyle,
+      zoom: 5,
 
 
 // pass in other Google Maps API options here
@@ -219,8 +218,8 @@ function(){
 <% @points_of_interest.each do |point| %>
 
 {
-  "lat": <%=p point.lat %>,
-  "lng": <%=p point.long %>,
+  "lat": <%= point.lat %>,
+  "lng": <%= point.long %>,
   "picture": {
     "url": "http://s29.postimg.org/7acw7mleb/todo.png",
     "width":  52,
