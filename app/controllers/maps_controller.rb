@@ -1,5 +1,6 @@
 class MapsController < ApplicationController
 	def index
+    p params
 		@my_location = MyLocation.new({lat: params["lat"], long: params["long"]})
 
 		@points_of_interest = []
