@@ -23,8 +23,8 @@ JSON.parse(res.body).each do |point|
   location_description = point["location_description"]
   medium = point["medium"]
   source = point["source"]
-  lat = JSON.parse(point["geometry"])["coordinates"][0]
-  long = JSON.parse(point["geometry"])["coordinates"][1]
+  lat = JSON.parse(point["geometry"])["coordinates"][1]
+  long = JSON.parse(point["geometry"])["coordinates"][0]
 
   PointsOfInterest.create(lat: lat, long: long, artist: artist, title: title, medium: medium, source: source)
   end
