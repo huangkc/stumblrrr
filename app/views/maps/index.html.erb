@@ -242,14 +242,14 @@ function(){
 
 // Sample arrival marker (only one of these)
 {
-  "lat": coords.lat - 0.1,
-  "lng": coords.long - 0.1,
+  "lat": <%= @latitude %>,
+  "lng": <%= @longitude %>,
   "picture": {
     "url": "http://s18.postimg.org/cdenuliv9/arrival.png",
     "width":  32,
     "height": 32
   },
-  "infowindow": "<h1 style='color:red'>Daisaku Ikeda Canyon</h1>"
+  "infowindow": "<h1 style='color:red'>You go here!</h1>"
 },
 
 // Sample arrival marker (only one of these)
