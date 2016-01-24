@@ -15,6 +15,14 @@
     </span>
   </div>
 
+<%= form_tag maps_path, :method => 'get', class: "search" do |f| %>
+    <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+
+
 </div>
 
 

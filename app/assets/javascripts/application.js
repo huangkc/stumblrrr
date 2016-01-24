@@ -19,6 +19,7 @@
 
 $(document).ready(function(){
 	getLocation();
+    enterDestination();
 })
 
 function getLocation() {
@@ -43,3 +44,16 @@ function showPosition(position) {
     }).done(function(response){})
 }
 
+function enterDestination() {
+    $(document).on('submit', '.search', function(e) {
+        e.preventDefault();
+        var search = this.serialize;
+        debugger
+        $.ajax({
+            url: '/maps',
+            type: 'get',
+            data: search
+        })
+    })
+
+}
