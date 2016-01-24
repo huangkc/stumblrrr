@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160123211917) do
     t.string   "location_description"
     t.string   "medium"
     t.string   "source"
+    t.string   "artist"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
