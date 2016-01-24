@@ -1,3 +1,4 @@
+
 <div class="row pull" style=" padding:20px">
 
   <div class="col col-md-4 input-group pull-left" style="padding-top:12px">
@@ -31,243 +32,306 @@
 
 
 
+
 <script>
-var mapStyle =[
+function buildMap(coords){
+  var mapStyle =[
+  {
+    "featureType": "all",
+    "elementType": "labels.text.fill",
+    "stylers": [
     {
-        "featureType": "all",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "saturation": 36
-            },
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 40
-            }
-        ]
+      "saturation": 36
     },
     {
-        "featureType": "all",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 16
-            }
-        ]
+      "color": "#000000"
     },
     {
-        "featureType": "all",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 20
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 17
-            },
-            {
-                "weight": 1.2
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 20
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 21
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 17
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 29
-            },
-            {
-                "weight": 0.2
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 18
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 16
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 19
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 17
-            }
-        ]
+      "lightness": 40
     }
-];
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+    {
+      "visibility": "on"
+    },
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 16
+    }
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "labels.icon",
+    "stylers": [
+    {
+      "visibility": "off"
+    }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.fill",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 20
+    }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    },
+    {
+      "weight": 1.2
+    }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 20
+    }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 21
+    }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 29
+    },
+    {
+      "weight": 0.2
+    }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 18
+    }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 16
+    }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 19
+    }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    }
+    ]
+  }
+  ];
 
-var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-      '<div id="bodyContent">'+
-      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-      'sandstone rock formation in the southern part of the '+
-      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-      'south west of the nearest large town, Alice Springs; 450&#160;km '+
-      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-      'Aboriginal people of the area. It has many springs, waterholes, '+
-      'rock caves and ancient paintings. Uluru is listed as a World '+
-      'Heritage Site.</p>'+
-      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-      '(last visited June 22, 2009).</p>'+
-      '</div>'+
-      '</div>';
-
-handler = Gmaps.build('Google');
 
 
+  var contentString = '<div id="content">'+
+  '<div id="siteNotice">'+
+  '</div>'+
+  '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+  '<div id="bodyContent">'+
+  '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+  'sandstone rock formation in the southern part of the '+
+  'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+  'south west of the nearest large town, Alice Springs; 450&#160;km '+
+  '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+  'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+  'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+  'Aboriginal people of the area. It has many springs, waterholes, '+
+  'rock caves and ancient paintings. Uluru is listed as a World '+
+  'Heritage Site.</p>'+
+  '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+  'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+  '(last visited June 22, 2009).</p>'+
+  '</div>'+
+  '</div>';
 
-handler.buildMap({
+  handler = Gmaps.build('Google');
 
- provider: {
-  disableDefaultUI: true,
-   mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+
+
+  handler.buildMap({
+
+    provider: {
+      disableDefaultUI: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: mapStyle,
 
- // pass in other Google Maps API options here
-},
-  internal: {
-    id: 'map_canvas'
 
-    }
+// pass in other Google Maps API options here
+},
+internal: {
+  id: 'map_canvas'
+
+}
+},
+
+function(){
+  markers = handler.addMarkers([
+
+// Sample todo marker to iterate over
+{
+  "lat": 51,
+  "lng": 12,
+  "picture": {
+    "url": "http://s29.postimg.org/7acw7mleb/todo.png",
+    "width":  52,
+    "height": 52
   },
 
-  function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 51,
-      "lng": 12,
-      "picture": {
-        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-        "width":  52,
-        "height": 52
-      },
-      "infowindow": contentString
-    },{
-      "lat": 21,
-      "lng": 12,
-      "picture": {
-        "url": "https://cdn4.iconfinder.com/data/icons/32x32-free-design-icons/32/Home.png",
-        "width":  32,
-        "height": 32
-      },
+  "infowindow": contentString
+},
 
-      "infowindow": contentString
-    }
+// Sample arrival marker (only one of these)
+{
+  "lat": 21,
+  "lng": 12,
+  "picture": {
+    "url": "http://s18.postimg.org/cdenuliv9/arrival.png",
+    "width":  32,
+    "height": 32
+  },
+  "infowindow": contentString
+},
 
+// Sample arrival marker (only one of these)
+{
+  "lat": coords.lat,
+  "lng": coords.long,
+  "picture": {
+    "url": "http://s14.postimg.org/moj60jusd/start.png",
+    "width":  32,
+    "height": 32
+  },
+  "infowindow": contentString
+},
 
-  ]);
-
-
+]);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
+}
+
 </script>
+
+
+<script>
+$(document).ready(function(){
+  getLocation();
+})
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+  } else {
+// x.innerHTML = "Geolocation is not supported by this browser.";
+}
+}
+function showPosition(position) {
+  $('body').append("Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude );
+  var coords = {
+    lat: position.coords.latitude,
+    long: position.coords.longitude
+
+  }
+  buildMap(coords);
+}
+</script>
+
+
+
+
+
+<div class="row pull" style=" padding:20px">
+  <div class="col col-md-6 centred input-group input-group-lg" style="padding-top:12px">
+    <input type="text" class="form-control" placeholder="Destination" aria-describedby="sizing-addon1">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Stumbler</button>
+    </span>
+  </div>
+</div>
+
+<div id="map_canvas"></div>

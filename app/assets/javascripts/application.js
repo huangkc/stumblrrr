@@ -44,6 +44,7 @@ function showPosition(position) {
     }).done(function(response){})
 }
 
+
 function enterDestination() {
     $(document).on('submit', '.search', function(e) {
         e.preventDefault();
