@@ -1,23 +1,12 @@
 <div class="row pull" style=" padding:20px">
-
-  <div class="col col-md-4 input-group pull-left" style="padding-top:12px">
-    <span class="input-group-addon" id="sizing-addon1">From</span>
-    <input type="text" class="form-control" placeholder="ERB VARIABLE PLZ" aria-describedby="sizing-addon1">
-  </div>
-
-  <div class="col-md-4"><p class="text-center" style="font-size:40px;font-weight:bold; letter-spacing:-1px"><i>Stumblrrr</i></p></div>
-
-  <div class="input-group  col col-md-4 pull-right" style="padding-top:12px">
-    <span class="input-group-addon" id="sizing-addon1">To</span>
+  <div class="col col-md-6 centred input-group input-group-lg" style="padding-top:12px">
     <input type="text" class="form-control" placeholder="Destination" aria-describedby="sizing-addon1">
     <span class="input-group-btn">
-      <button class="btn btn-default" type="button">Go!</button>
+      <button class="btn btn-default" type="button">Stumbler</button>
     </span>
   </div>
 
 </div>
-
-
 
 <div id="map_canvas"></div>
 
@@ -192,6 +181,8 @@ var mapStyle =[
     }
 ];
 
+
+
 var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
@@ -217,12 +208,14 @@ handler = Gmaps.build('Google');
 
 
 
+
 handler.buildMap({
 
  provider: {
   disableDefaultUI: true,
    mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: mapStyle,
+
 
  // pass in other Google Maps API options here
 },
@@ -234,26 +227,43 @@ handler.buildMap({
 
   function(){
   markers = handler.addMarkers([
+
+    // Sample todo marker to iterate over
     {
       "lat": 51,
       "lng": 12,
       "picture": {
-        "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+        "url": "http://s29.postimg.org/7acw7mleb/todo.png",
         "width":  52,
         "height": 52
       },
+
       "infowindow": contentString
-    },{
+    },
+
+    // Sample arrival marker (only one of these)
+      {
       "lat": 21,
       "lng": 12,
       "picture": {
-        "url": "https://cdn4.iconfinder.com/data/icons/32x32-free-design-icons/32/Home.png",
+        "url": "http://s18.postimg.org/cdenuliv9/arrival.png",
         "width":  32,
         "height": 32
       },
-
       "infowindow": contentString
-    }
+    },
+
+      // Sample arrival marker (only one of these)
+      {
+      "lat": 31,
+      "lng": 12,
+      "picture": {
+        "url": "http://s14.postimg.org/moj60jusd/start.png",
+        "width":  32,
+        "height": 32
+      },
+      "infowindow": contentString
+    },
 
 
   ]);
