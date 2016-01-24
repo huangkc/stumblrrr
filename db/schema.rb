@@ -17,11 +17,15 @@ ActiveRecord::Schema.define(version: 20160123211917) do
   enable_extension "plpgsql"
 
   create_table "destinations", force: :cascade do |t|
-    t.string   "latitude"
-    t.string   "longitude"
+    t.string   "lat"
+    t.string   "long"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "location_description"
+    t.string   "medium"
+    t.string   "source"
+    t.string   "artist"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "intermediates", force: :cascade do |t|
@@ -39,11 +43,14 @@ ActiveRecord::Schema.define(version: 20160123211917) do
   end
 
   create_table "points_of_interests", force: :cascade do |t|
-    t.string   "latitude"
-    t.string   "longitude"
+    t.string   "lat"
+    t.string   "long"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "location_description"
+    t.string   "medium"
+    t.string   "source"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end
