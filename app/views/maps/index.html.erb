@@ -1,30 +1,6 @@
 
-<div class="row pull" style=" padding:20px">
-
-  <div class="col col-md-4 input-group pull-left" style="padding-top:12px">
-    <span class="input-group-addon" id="sizing-addon1">From</span>
-    <input type="text" class="form-control" placeholder="ERB VARIABLE PLZ" aria-describedby="sizing-addon1">
-  </div>
-
-  <div class="col-md-4"><p class="text-center" style="font-size:40px;font-weight:bold; letter-spacing:-1px"><i>Stumblrrr</i></p></div>
-
-  <div class="input-group  col col-md-4 pull-right" style="padding-top:12px">
-    <span class="input-group-addon" id="sizing-addon1">To</span>
-    <input type="text" class="form-control" placeholder="Destination" aria-describedby="sizing-addon1">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="button">Go!</button>
-    </span>
-  </div>
-
-<%= form_tag maps_path, :method => 'get', class: "search" do |f| %>
-    <p>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-    </p>
-<% end %>
 
 
-</div>
 
 
 
@@ -310,8 +286,6 @@ function getLocation() {
 }
 }
 function showPosition(position) {
-  $('body').append("Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude );
   var coords = {
     lat: position.coords.latitude,
     long: position.coords.longitude
