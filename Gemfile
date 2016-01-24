@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'json'
+gem 'httparty'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -14,6 +15,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+# Google maps API
+gem 'gmaps4rails'
+
+# Bootstrap
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
