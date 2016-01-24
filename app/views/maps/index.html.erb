@@ -1,7 +1,3 @@
-<%= form_for :location do |f| %>
-  Where do you want to go? <%= f.text_field :address %>
-  <%= f.submit "stumblrrr" %>
-<% end %>
 
 <%= @address %>
 
@@ -250,9 +246,12 @@ function(){
   markers = handler.addMarkers([
 
 // Sample todo marker to iterate over
+
+<% @points_of_interest.each do |points_of_interest| %>
+
 {
-  "lat": 51,
-  "lng": 12,
+  lat: <%= points_of_interest.lat %> ,
+  lng: <%= points_of_interest.long %> ,
   "picture": {
     "url": "http://s29.postimg.org/7acw7mleb/todo.png",
     "width":  52,
@@ -261,6 +260,8 @@ function(){
 
   "infowindow": contentString
 },
+<% end %>
+
 
 // Sample arrival marker (only one of these)
 {
