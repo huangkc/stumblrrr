@@ -1,10 +1,12 @@
 
-<%= form_tag(maps_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+<div style="padding-top:8px" class="col-md-6 col-md-offset-3 text-center">
+<%= form_tag(maps_path, :method => "get", class: "navbar-form form-lg", id: "search-form") do %>
     <%= hidden_field_tag :sort_option, :search %>
-    <%= text_field_tag :search, params[:search], class: "form-control btn-border", placeholder: "Search Items" %>
+    <%= text_field_tag :search, params[:search], class: "btn-block btn-border btn-lg", placeholder: "Where do you want to go ?" %>
 
-      <button class="btn btn-warning btn-border" type="submit">&nbsp;search&nbsp;</button>
+      <button style="margin-top:15px" class="btn btn-lg btn-danger btn-border" type="submit"><b style="font-size:bold; letter-spacing:-1px; font-size:30px"><i>STUMBLRRR</i></b></button>
 <% end %>
+</div>
 
 <div id="map_canvas"></div>
 
@@ -222,11 +224,17 @@ function(){
   "lng": <%= point.long %>,
   "picture": {
     "url": "http://s29.postimg.org/7acw7mleb/todo.png",
-    "width":  52,
-    "height": 52
+    "width":  32,
+    "height": 32
   },
 
-  "infowindow": contentString
+
+  "infowindow": '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">'+'<%= point.title %>'+'</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>By ' + '<%= point.artist %>' + '</b></p>'
 
 },
 <% end %>
@@ -234,14 +242,14 @@ function(){
 
 // Sample arrival marker (only one of these)
 {
-  "lat": coords.lat + 1,
-  "lng": coords.long + 1,
+  "lat": <%= @latitude %>,
+  "lng": <%= @longitude %>,
   "picture": {
     "url": "http://s18.postimg.org/cdenuliv9/arrival.png",
     "width":  32,
     "height": 32
   },
-  "infowindow": contentString
+  "infowindow": "<h1 style='color:red'>You go here!</h1>"
 },
 
 // Sample arrival marker (only one of these)
@@ -253,7 +261,7 @@ function(){
     "width":  32,
     "height": 32
   },
-  "infowindow": contentString
+  "infowindow": "<h1 style='color:blue'>You are here!</h1>"
 },
 
 ]);
