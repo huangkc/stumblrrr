@@ -13,7 +13,7 @@ class MapsController < ApplicationController
 
     # response = HTTParty.get('https://maps.google.com/maps/api/geocode/json?address=' + @address.gsub(" ", "_") + '&sensor=false&key=' + ENV["GOOGLE_SERVER_KEY"])
 
-    response = HTTParty.get("http://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20geo.places%20WHERE%20text=%22" + @address.gsub(" ", "%20") + "%22%20and%20placeTypeName=%22Town%22")
+    response = HTTParty.get("http://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20geo.places%20WHERE%20text=%22" + @address.gsub(" ", "") + "%22%20and%20placeTypeName=%22Town%22")
 
 
 # url = URI.parse('http://maps.google.com/maps/api/geocode/json?address=' + @address + '&sensor=false')
