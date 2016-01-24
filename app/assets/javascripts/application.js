@@ -17,29 +17,4 @@
 //= require gmaps/google
 //= require_tree .
 
-$(document).ready(function(){
-	getLocation();
-})
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-
-    } else {
-        // x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-function showPosition(position) {
-    $('body').append("Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude );
-    var coords = {
-    	lat: position.coords.latitude,
-    	long: position.coords.longitude
-    }
-    $.ajax({
-    	url: '/maps',
-    	type: 'get',
-    	data: coords
-    }).done(function(response){})
-}
 
