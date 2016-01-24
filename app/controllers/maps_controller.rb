@@ -13,8 +13,13 @@ class MapsController < ApplicationController
     http.request(req)
     }
 
-puts @res.body.to_s
+    @lol = JSON.parse(@res.body)
 
+    @lal = JSON.parse(@lol[1]['geometry'])
+
+    p '-------------------------------------'
+
+    p @lal['coordinates']
 	end
 
 end
