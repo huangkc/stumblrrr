@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require gmaps/google
 //= require_tree .
@@ -29,7 +30,7 @@ function getLocation() {
     }
 }
 function showPosition(position) {
-    $('body').append("Latitude: " + position.coords.latitude + 
+    $('body').append("Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude );
     var coords = {
     	lat: position.coords.latitude,
@@ -41,3 +42,4 @@ function showPosition(position) {
     	data: coords
     }).done(function(response){})
 }
+
