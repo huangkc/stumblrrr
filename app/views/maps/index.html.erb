@@ -1,0 +1,297 @@
+
+<div style="padding-top:8px" class="col-md-6 col-md-offset-3 text-center">
+<%= form_tag(maps_path, :method => "get", class: "navbar-form form-lg", id: "search-form") do %>
+    <%= hidden_field_tag :sort_option, :search %>
+    <%= text_field_tag :search, params[:search], class: "btn-block btn-border btn-lg", placeholder: "Where do you want to go ?" %>
+
+      <button style="margin-top:15px" class="btn btn-lg btn-danger btn-border" type="submit"><b style="font-size:bold; letter-spacing:-1px; font-size:30px"><i>STUMBLRRR</i></b></button>
+<% end %>
+</div>
+
+<div id="map_canvas"></div>
+
+
+
+
+
+<script>
+function buildMap(coords){
+  var mapStyle =[
+  {
+    "featureType": "all",
+    "elementType": "labels.text.fill",
+    "stylers": [
+    {
+      "saturation": 36
+    },
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 40
+    }
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+    {
+      "visibility": "on"
+    },
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 16
+    }
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "labels.icon",
+    "stylers": [
+    {
+      "visibility": "off"
+    }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.fill",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 20
+    }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    },
+    {
+      "weight": 1.2
+    }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 20
+    }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 21
+    }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 29
+    },
+    {
+      "weight": 0.2
+    }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 18
+    }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 16
+    }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 19
+    }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    }
+    ]
+  }
+  ];
+
+
+
+  var contentString = 'Hello'
+
+
+  handler = Gmaps.build('Google');
+
+
+
+
+  handler.buildMap({
+
+    provider: {
+      disableDefaultUI: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: mapStyle,
+      zoom: 5,
+
+
+// pass in other Google Maps API options here
+},
+internal: {
+  id: 'map_canvas'
+
+}
+},
+
+function(){
+  markers = handler.addMarkers([
+
+// Sample todo marker to iterate over
+
+
+<% @points_of_interest.each do |point| %>
+
+{
+  "lat": <%= point.lat %>,
+  "lng": <%= point.long %>,
+  "picture": {
+    "url": "http://s29.postimg.org/7acw7mleb/todo.png",
+    "width":  32,
+    "height": 32
+  },
+
+
+  "infowindow": '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">'+'<%= point.title %>'+'</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>By ' + '<%= point.artist %>' + '</b></p>'
+
+},
+<% end %>
+
+
+// Sample arrival marker (only one of these)
+{
+  "lat": coords.lat - 0.1,
+  "lng": coords.long - 0.1,
+  "picture": {
+    "url": "http://s18.postimg.org/cdenuliv9/arrival.png",
+    "width":  32,
+    "height": 32
+  },
+  "infowindow": "<h1 style='color:red'>Daisaku Ikeda Canyon</h1>"
+},
+
+// Sample arrival marker (only one of these)
+{
+  "lat": coords.lat,
+  "lng": coords.long,
+  "picture": {
+    "url": "http://s14.postimg.org/moj60jusd/start.png",
+    "width":  32,
+    "height": 32
+  },
+  "infowindow": "<h1 style='color:blue'>You are here!</h1>"
+},
+
+]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+}
+
+</script>
+
+
+<script>
+$(document).ready(function(){
+  getLocation();
+})
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+  } else {
+// x.innerHTML = "Geolocation is not supported by this browser.";
+}
+}
+function showPosition(position) {
+  var coords = {
+    lat: position.coords.latitude,
+    long: position.coords.longitude
+
+  }
+  buildMap(coords);
+}
+</script>
