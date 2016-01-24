@@ -26,13 +26,13 @@ JSON.parse(res.body).each do |point|
   lat = JSON.parse(point["geometry"])["coordinates"][1]
   long = JSON.parse(point["geometry"])["coordinates"][0]
 
-  PointsOfInterest.create(lat: lat, long: long, artist: artist, title: title, medium: medium, source: source)
+  PointsOfInterest.create(lat: lat, long: long, artist: artist, title: title, medium: medium, source: source, location_description: location_description)
   end
 
   puts "Adding to database item"
 
 end
-# p JSON.parse(res.body)
+# p JSON.parse(res.body)[0]
 
 # JSON.parse(JSON.parse(res.body)[0]["geometry"])["coordinates"][1]
 
