@@ -1,18 +1,19 @@
 
 <div style="padding-top:8px" class="col-md-6 col-md-offset-3 text-center">
-<%= form_tag(maps_path, :method => "get", class: "navbar-form form-lg", id: "search-form") do %>
+  <%= form_tag(maps_path, :method => "get", class: "navbar-form form-lg", id: "search-form") do %>
     <%= hidden_field_tag :sort_option, :search %>
     <%= text_field_tag :search, params[:search], class: "btn-block btn-border btn-lg", placeholder: "Where do you want to go ?" %>
 
-      <button style="margin-top:15px" class="btn btn-lg btn-danger btn-border" type="submit"><b style="font-size:bold; letter-spacing:-1px; font-size:30px"><i>STUMBLRRR</i></b></button>
-<% end %>
+      <div style="margin-top:15px" class="btn btn-lg btn-danger btn-border" type="submit"><b style="font-size:bold; letter-spacing:-1px; font-size:30px"><i>STUMBLRRR</i></b></div>
+
+      <div id="instruction">
+        <p>Have some time to kill in San Francisco? Your location is the blue dot. Click on green dots for locations that might interest you!</p>
+      </div>
+
+  <% end %>
 </div>
 
 <div id="map_canvas"></div>
-
-
-
-
 
 <script>
 function buildMap(coords){
