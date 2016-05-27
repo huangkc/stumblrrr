@@ -26,15 +26,33 @@ html, body, #map_canvas {
 #instruction {
   height: 50px;
   text-align:left;
-
 }
 
-#banner {
+.logo{
+  font-family: 'Ubuntu', sans-serif;
+  color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.nav-wrapper a{
+  color: black;
+}
+
+.space {
+  height: 20px;
+  min-width: 100%;
+}
+/*#banner {
     border: 1px solid red;
     height: 90%;
     margin: 0;
     padding: 0;
-}
+}*/
 
 #instruction p {
   font-family: 'Ubuntu', sans-serif;
