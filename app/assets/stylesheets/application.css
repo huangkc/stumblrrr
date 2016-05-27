@@ -26,10 +26,18 @@ html, body, #map_canvas {
 #instruction {
   height: 50px;
   text-align:left;
-  
+
+}
+
+#banner {
+    border: 1px solid red;
+    height: 90%;
+    margin: 0;
+    padding: 0;
 }
 
 #instruction p {
+  font-family: 'Ubuntu', sans-serif;
   padding-top :20px;
   font-size: 1.5em;
 }
