@@ -32,7 +32,6 @@ class MapsController < ApplicationController
   end
 
   def about
-    
   end
 
   def contact

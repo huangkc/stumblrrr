@@ -28,10 +28,10 @@ html, body, #map_canvas {
   text-align:left;
 }
 
-.logo{
+#logo {
   font-family: 'Ubuntu', sans-serif;
   color: black;
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: bold;
 }
 
@@ -41,6 +41,9 @@ a:hover{
 
 .nav-wrapper a{
   color: black;
+  font-family: 'Ubuntu', sans-serif;
+  color: black;
+  font-size: 1em;
 }
 
 .space {
