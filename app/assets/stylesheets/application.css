@@ -35,6 +35,11 @@ html, body, #map_canvas {
   font-weight: bold;
 }
 
+.contact-page{
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
 a:hover{
   text-decoration: none;
 }
